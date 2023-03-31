@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*Vista General*@
+<div class="container">
+    <div class="row">
+        <h2>Empleado</h2>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div style="float:right">
+            @*@Html.ActionLink("Agregar Empleado", "Form", "Empleado", htmlAttributes: new { @class = "btn btn-success" })*@
+            <button type="button" class="btn btn-success" id="btnAdd" onclick="Modal()">Agregar Empleado</button>
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+
+            <table class="table table-bordered table-responsive table-hover" id="tblEmpleado">
+                <thead>
+                    <tr>
+                        <td class="text-center" style=" font-weight:bold;">Editar</td>
+
+                        <td style="display: none;">NumeroEmpleado</td>
+                        <td class="text-center" style=" font-weight:bold;">NumeroNomina</td>
+                        <td class="text-center" style=" font-weight:bold;">Nombre</td>
+                        <td class="text-center" style=" font-weight:bold;">ApellidoPaterno</td>
+                        <td class="text-center" style=" font-weight:bold;">ApellidoMaterno</td>
+                        <td class="text-center" style=" font-weight:bold;">Estado</td>
+
+                        <td class="text-center" style=" font-weight:bold;">Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    </div>
+</div>
+
+@*Vista Modal*@
+<div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dismiss="modal">×</button>*@
+                <h4 class="modal-title" id="myModalLabel">Empleado</h4>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtIdEmpleado" placeholder="IdEmpleado" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label class="NumeroNomina"></label>
+                        <input type="text" class="form-control" id="txtNumeroNomina" placeholder="NumeroNomina" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label class="Nombre"></label>
+                        <input type="text" class="form-control" id="txtNombre" placeholder="Nombre" />
+                    </div>
+                    <div class="form-group">
+                        <label class="ApellidoPaterno"></label>
+                        <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="ApellidoPaterno" />
+                    </div>
+                    <div class="form-group">
+                        <label class="ApellidoMaterno"></label>
+                        <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="ApellidoMaterno" />
+                    </div>
+                    <div class="form-group">
+                        <label class="Estado"></label>
+                        <select name="Estado" class="form-control" id="ddlEstado"></select>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn glyphicon glyphicon-pencil" id="btnUpdate" onclick="Actualizar()">Actualizar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Detalle</h4>
+                            @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                        </div>
+                        <div class="modal-body">
+                            <h5>
+                                Acción completada con éxito
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" value="Regresar" data-bs-dismiss="modal">Regresar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/Empleado.js"></script>
+}
